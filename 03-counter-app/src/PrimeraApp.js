@@ -1,14 +1,22 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const numero=123;
+const PrimeraApp=({saludo, subtitulo})=>{
+  return (
+    <>  
+      <h1> {saludo} </h1>
+      <p> {subtitulo} </p>
+    </>  
+  );
+}
 
-const PrimeraApp=({saludo="viva Porfirio Diaz"})=>{
-    return (
-      <>  
-        <h1> {saludo} </h1>
-      </>  
-    );
-    
+PrimeraApp.propTypes= {
+  saludo: PropTypes.string.isRequired
+}
+
+PrimeraApp.defaultProps={
+  subtitulo: "Soy un subtitulo"
+
 }
 
 export default PrimeraApp;
