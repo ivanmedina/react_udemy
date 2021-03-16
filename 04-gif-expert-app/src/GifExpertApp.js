@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import ReactDOM from 'react-dom';
+// import ReactDOM from 'react-dom';
 import AddCategory from './components/addCategory';
 import { GifGrid } from './components/GifGrid';
 import './index.css'
 
-export const GifExpertApp=()=>{
-    const [categories, setCategories]=useState(['360 flip']);
+export const GifExpertApp=({defaultCategories=[]})=>{
+    const [categories, setCategories]=useState(defaultCategories);
 
     // const handleAdd=()=>{
     //     setCategories([...categories,'Skateboarding']);

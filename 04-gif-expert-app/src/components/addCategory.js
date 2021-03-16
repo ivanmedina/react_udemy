@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import propTypes from "prop-types";
 
-function AddCategory({setCategories}) {
+export function AddCategory({setCategories}) {
     const [inputValue, setInputValue]=useState('');
 
     const handleInputChange=(e)=>{
@@ -11,13 +11,14 @@ function AddCategory({setCategories}) {
     const handleSubmit=(e)=>{
         e.preventDefault();
         if(inputValue.trim().length>2){
-            setCategories(categorias=>[...categorias, inputValue]);
+            setCategories(categorias=>[ inputValue, ...categorias]);
             setInputValue('');
         }
     }
 
     return (
         <form onSubmit={handleSubmit}>
+            <p>{inputValue}</p>
             <input
                 type = "text"
                 value = { inputValue }
@@ -29,7 +30,7 @@ function AddCategory({setCategories}) {
 }
 
 AddCategory.propTypes={
-    setCategories: propTypes.func
+    setCategories: propTypes.func.isRequired
 };
 
 export default AddCategory
